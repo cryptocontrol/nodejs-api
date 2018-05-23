@@ -49,7 +49,6 @@ Api.getTopNews()
         "_id": "5b050b2018f173000f9a7036",
         "description": "The Chief Financial...",
         "url": "https://cryptocontrol.io/r/api/article/5b050b2018f173000f9a7036?ref=5ac11440ec0af7be35528459"
-    },
-    { .... }
+    }
 ]
 ```
