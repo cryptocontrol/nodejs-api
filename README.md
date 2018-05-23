@@ -22,7 +22,7 @@ Api.getTopNews()
 ```
 
 ## Sample Response from the API
-```json
+```javascript
 [
     {
         "publishedAt": "2018-05-23T06:30:51.000Z",

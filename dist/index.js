@@ -57,16 +57,14 @@ var CryptoControlApi = /** @class */ (function () {
     }
     CryptoControlApi.prototype._fetch = function (url, query) {
         if (query === void 0) { query = {}; }
-        return __awaiter(this, void 0, void 0, function () {
-            var queryString;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        queryString = qs.stringify(__assign({}, query, { key: this.apikey }));
-                        return [4 /*yield*/, node_fetch_1.default("" + API_HOST + url + "?" + queryString)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
+        var queryString = qs.stringify(__assign({}, query, { key: this.apikey }));
+        return node_fetch_1.default("" + API_HOST + url + "?" + queryString)
+            .then(function (response) {
+            if (response.status === 401)
+                throw new Error('Invalid API Key');
+            if (response.status !== 200)
+                throw new Error('Bad response from the CryptoControl server');
+            return response.json();
         });
     };
     CryptoControlApi.prototype.getTopNews = function () {

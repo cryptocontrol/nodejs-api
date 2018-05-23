@@ -52,13 +52,19 @@ export default class CryptoControlApi {
     }
 
 
-    private async _fetch(url: string, query: any = {}): Promise<any> {
+    private _fetch(url: string, query: any = {}): Promise<any> {
         const queryString = qs.stringify({
             ...query,
             key: this.apikey
         })
 
-        return await fetch(`${API_HOST}${url}?${queryString}`)
+        return fetch(`${API_HOST}${url}?${queryString}`)
+            .then(response => {
+                if (response.status === 401) throw new Error('Invalid API Key')
+                if (response.status !== 200) throw new Error('Bad response from the CryptoControl server')
+                return response.json()
+            })
+
     }
 
 
