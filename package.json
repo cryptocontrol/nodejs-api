@@ -1,0 +1,28 @@
+{
+  "name": "crypto-news-api",
+  "version": "1.0.0",
+  "description": "API to get a crypto newsfeed in your app",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptocontrol/nodejs-api.git"
+  },
+  "keywords": [
+    "crypto",
+    "news",
+    "api"
+  ],
+  "author": "Steven Enamakel <enamakel@cryptocontrol.io>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/cryptocontrol/nodejs-api/issues"
+  },
+  "homepage": "https://github.com/cryptocontrol/nodejs-api#readme",
+  "devDependencies": {
+    "typescript": "^2.8.3"
+  }
+}
