@@ -11,7 +11,7 @@ npm install crypto-news-api --save
 ## Usage
 First make sure that you've recieved an API by visiting [https://cryptocontrol.io/apis](https://cryptocontrol.io/apis). With the api key you can write the following code.
 
-```nodejs
+```javascript
 import CryptoControl from 'crypto-news-api'
 
 const Api = new CryptoControl('API_KEY_HERE')
@@ -22,7 +22,7 @@ Api.getTopNews()
 ```
 
 ## Sample Response from the API
-```
+```json
 [
     {
         "publishedAt": "2018-05-23T06:30:51.000Z",
