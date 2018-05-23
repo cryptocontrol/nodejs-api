@@ -9,7 +9,17 @@ npm install crypto-news-api --save
 ```
 
 ## Usage
+First make sure that you've recieved an API by visiting [https://cryptocontrol.io/apis](https://cryptocontrol.io/apis). With the api key you can write the following code.
 
+```nodejs
+import CryptoControl from 'crypto-news-api'
+
+const Api = new CryptoControl('API_KEY_HERE')
+
+Api.getTopNews()
+    .then(articles => console.log(articles))
+    .catch(error => console.error(error))
+```
 
 ## Sample Response from the API
 ```
