@@ -23,6 +23,17 @@
   },
   "homepage": "https://github.com/cryptocontrol/nodejs-api#readme",
   "devDependencies": {
+    "@types/bluebird": "^3.5.20",
+    "@types/debug": "0.0.30",
+    "@types/es6-promise": "^3.3.0",
+    "@types/node-fetch": "^1.6.9",
+    "@types/qs": "^6.5.1",
     "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "debug": "^3.1.0",
+    "node-fetch": "^2.1.2",
+    "qs": "^6.5.2"
   }
 }

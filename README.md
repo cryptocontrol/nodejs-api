@@ -1,7 +1,7 @@
 CryptoControl Node.js API
 =========================
 
-NPM Package that allows users to access the cryptocontrol API via node.
+Node.js official client to CryptoControl.io API.
 
 ## Installation
 ```sh
