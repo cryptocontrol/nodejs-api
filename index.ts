@@ -27,7 +27,8 @@ export interface IArticle {
     description: string
     title: string
     url: string
-    thumbnail: string
+    thumbnail?: string
+    originalImageUrl?: string
 }
 
 
@@ -64,16 +65,15 @@ export default class CryptoControlApi {
                 if (response.status !== 200) throw new Error('Bad response from the CryptoControl server')
                 return response.json()
             })
-
     }
 
 
-    public async getTopNews(): Promise<IArticle> {
+    public async getTopNews(): Promise<IArticle[]> {
         return await this._fetch('/public/news')
     }
 
 
-    public async getLatestNews(): Promise<IArticle> {
+    public async getLatestNews(): Promise<IArticle[]> {
         return await this._fetch('/public/news', { latest: true })
     }
 
@@ -83,12 +83,12 @@ export default class CryptoControlApi {
     }
 
 
-    public async getTopNewsByCoin(coinSlug: string): Promise<IArticle> {
+    public async getTopNewsByCoin(coinSlug: string): Promise<IArticle[]> {
         return await this._fetch(`/public/news/coin/${coinSlug}`)
     }
 
 
-    public async getLatestNewsByCoin(coinSlug: string): Promise<IArticle> {
+    public async getLatestNewsByCoin(coinSlug: string): Promise<IArticle[]> {
         return await this._fetch(`/public/news/coin/${coinSlug}`, { latest: true })
     }
 

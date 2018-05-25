@@ -21,6 +21,17 @@ Api.getTopNews()
     .catch(error => console.error(error))
 ```
 
+## Available Functions
+
+- **getTopNews()** Get the top news articles from the CryptoControl News API.
+- **getLatestNews()** Get the latest news articles from the CryptoControl News API.
+- **getTopNewsByCategory()** Get news articles grouped by category from the CryptoControl News API.
+- **getTopNewsByCoin(coinSlug: String)** Get the top news articles for a specific coin from the CryptoControl API.
+- **getLatestNewsByCoin(coinSlug: String)** Get the latest news articles for a specific coin from the CryptoControl News API.
+- **getTopNewsByCoinCategory(coinSlug: String)** Get news articles grouped by category for a specific coin from the CryptoControl News API.
+
+The coin slugs are the coin id's used from the CoinMarketCap api. You can see the full list of coins here: [https://api.coinmarketcap.com/v1/ticker/?limit=2000](https://api.coinmarketcap.com/v1/ticker/?limit=2000)
+
 ## Sample Response from the API
 ```javascript
 [
