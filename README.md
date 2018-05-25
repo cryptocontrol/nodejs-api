@@ -81,9 +81,13 @@ The coin slugs are the coin id's used from the CoinMarketCap api. You can see th
                 "tradingSymbol": "btc"
             }
         ],
-        "_id": "5b050b2018f173000f9a7036",
-        "description": "The Chief Financial...",
-        "url": "https://cryptocontrol.io/r/api/article/5b050b2018f173000f9a7036?ref=5ac11440ec0af7be35528459"
+        "_id": "5b07ea76214428000f55a513",
+        "description": "Welcome to Crypto Daily™ News, this news piece \"Ripple XRP And Bitcoin Cash Now Live On Revolut\" is breaking news from the Crypto sector.",
+        "title": "Ripple XRP And Bitcoin Cash Now Live On Revolut - Crypto Daily™",
+        "url": "https://cryptocontrol.io/r/api/article/5b07ea76214428000f55a513?ref=5ac11440ec0af7be35528459",
+        "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b07ea76214428000f55a513?ref=5ac11440ec0af7be35528459",
+        "originalImageUrl": "https://cryptodaily.co.uk/wp-content/uploads/2018/05/ripple-bitcoincash-credit.jpg"
+
     }
 ]
 ```
