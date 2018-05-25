@@ -1,6 +1,6 @@
 {
   "name": "crypto-news-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "API to get a crypto newsfeed in your app",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
