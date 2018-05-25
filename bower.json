@@ -1,0 +1,22 @@
+{
+  "name": "crypto-news-api",
+  "description": "API to get a crypto newsfeed in your app",
+  "main": "dist/index.js",
+  "authors": [
+    "Steven Enamakel <enamakel@cryptocontrol.io>"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "crypto",
+    "news",
+    "api"
+  ],
+  "homepage": "https://github.com/cryptocontrol/nodejs-api",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

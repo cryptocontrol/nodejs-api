@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import * as fetch from 'isomorphic-fetch'
 import * as debug from 'debug'
 import * as qs from 'qs'
 
@@ -60,7 +60,7 @@ export default class CryptoControlApi {
         })
 
         return fetch(`${API_HOST}${url}?${queryString}`)
-            .then(response => {
+            .then((response: any) => {
                 if (response.status === 401) throw new Error('Invalid API Key')
                 if (response.status !== 200) throw new Error('Bad response from the CryptoControl server')
                 return response.json()
