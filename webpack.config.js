@@ -19,10 +19,18 @@ module.exports = {
         }]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            CryptoControlApi: path.resolve(__dirname, './index.browser')
+        }
     },
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
-    }
+    },
+    plugins: [
+          new webpack.ProvidePlugin({
+              'CryptoControlApi': 'CryptoControlApi'
+          })
+    ]
 }
