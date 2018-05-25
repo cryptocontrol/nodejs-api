@@ -4,13 +4,24 @@ CryptoControl Crypto News API
 Node.js official client to [CryptoControl.io](https://cryptocontrol.io) API. The CryptoControl Node.js API let's developer access rich formatted articles from cryptonews sources from all around the world.
 
 ## Installation
+### Node
 ```sh
 npm install crypto-news-api --save
+```
+
+### Bower - Browser/Web
+```sh
+bower install crypto-news-api --save
+```
+```html
+<script src="./bower_components/crypto-news-api/dist/bundle.js"></script>
 ```
 
 ## Usage
 First make sure that you've recieved an API by visiting [https://cryptocontrol.io/apis](https://cryptocontrol.io/apis). With the api key you can write the following code.
 
+
+### Node.js
 ```javascript
 import CryptoControl from 'crypto-news-api'
 
@@ -19,6 +30,19 @@ const Api = new CryptoControl('API_KEY_HERE')
 Api.getTopNews()
     .then(articles => console.log(articles))
     .catch(error => console.error(error))
+```
+
+### Bower
+```html
+<scrip src="./bower_components/crypto-news-api/dist/bundle.js"></script>
+
+<script>
+    const Api = new window.CryptoControlApi('API_KEY_HERE')
+
+    Api.getTopNews()
+        .then(articles => console.log(articles))
+        .catch(error => console.error(error))
+</script>
 ```
 
 ## Available Functions
