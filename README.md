@@ -18,21 +18,21 @@ bower install crypto-news-api --save
 ```
 
 ## Usage
-First make sure that you've recieved an API by visiting [https://cryptocontrol.io/apis](https://cryptocontrol.io/apis). With the api key you can write the following code.
+First make sure that you've recieved an API key by visiting [https://cryptocontrol.io/apis](https://cryptocontrol.io/apis). With the API key you can write the following code.
 
 
 ### Node.js
 ```javascript
-import CryptoControl from 'crypto-news-api'
+import CryptoControlApi from 'crypto-news-api'
 
-const Api = new CryptoControl('API_KEY_HERE')
+const Api = new CryptoControlApi('API_KEY_HERE')
 
 Api.getTopNews()
     .then(articles => console.log(articles))
     .catch(error => console.error(error))
 ```
 
-### Bower
+### Bower/Webpack
 ```html
 <scrip src="./bower_components/crypto-news-api/dist/bundle.js"></script>
 
@@ -87,7 +87,6 @@ The coin slugs are the coin id's used from the CoinMarketCap api. You can see th
         "url": "https://cryptocontrol.io/r/api/article/5b07ea76214428000f55a513?ref=5ac11440ec0af7be35528459",
         "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b07ea76214428000f55a513?ref=5ac11440ec0af7be35528459",
         "originalImageUrl": "https://cryptodaily.co.uk/wp-content/uploads/2018/05/ripple-bitcoincash-credit.jpg"
-
     }
 ]
 ```
