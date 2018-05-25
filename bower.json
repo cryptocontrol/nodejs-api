@@ -18,5 +18,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "qs": "^0.4.8",
+    "isomorphic-fetch": "^2.2.1",
+    "bluebird": "^3.5.1",
+    "debug": "*"
+  }
 }
