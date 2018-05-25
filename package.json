@@ -2,10 +2,10 @@
   "name": "crypto-news-api",
   "version": "1.0.4",
   "description": "API to get a crypto newsfeed in your app",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/node/index.node.js",
+  "types": "dist/node/index.node.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "rimraf dist; webpack; tsc"
   },
   "repository": {
     "type": "git",
@@ -25,14 +25,22 @@
   "devDependencies": {
     "@types/bluebird": "^3.5.20",
     "@types/debug": "0.0.30",
-    "@types/isomorphic-fetch": "^0.0.34",
+    "@types/node-fetch": "^1.6.9",
     "@types/qs": "^6.5.1",
-    "typescript": "^2.8.3"
+    "@types/whatwg-fetch": "^0.0.33",
+    "exports-loader": "^0.7.0",
+    "rimraf": "^2.6.2",
+    "ts-loader": "^4.3.0",
+    "typescript": "^2.8.3",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.4"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
-    "isomorphic-fetch": "^2.2.1",
-    "qs": "^6.5.2"
+    "es6-promises": "^1.0.10",
+    "node-fetch": "^2.1.2",
+    "qs": "^6.5.2",
+    "whatwg-fetch": "^2.0.4"
   }
 }

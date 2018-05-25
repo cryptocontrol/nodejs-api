@@ -20,7 +20,8 @@ export interface IArticle {
     description: string;
     title: string;
     url: string;
-    thumbnail: string;
+    thumbnail?: string;
+    originalImageUrl?: string;
 }
 export interface ICategoryResponse {
     analysis: IArticle[];
@@ -30,15 +31,4 @@ export interface ICategoryResponse {
     government: IArticle[];
     ico: IArticle[];
     mining: IArticle[];
-}
-export default class CryptoControlApi {
-    apikey: string;
-    constructor(apikey: string);
-    private _fetch(url, query?);
-    getTopNews(): Promise<IArticle>;
-    getLatestNews(): Promise<IArticle>;
-    getTopNewsByCategory(): Promise<ICategoryResponse>;
-    getTopNewsByCoin(coinSlug: string): Promise<IArticle>;
-    getLatestNewsByCoin(coinSlug: string): Promise<IArticle>;
-    getTopNewsByCoinCategory(coinSlug: string): Promise<ICategoryResponse>;
 }

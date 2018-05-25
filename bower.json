@@ -1,7 +1,7 @@
 {
   "name": "crypto-news-api",
   "description": "API to get a crypto newsfeed in your app",
-  "main": "dist/index.js",
+  "main": "dist/bundle.js",
   "authors": [
     "Steven Enamakel <enamakel@cryptocontrol.io>"
   ],

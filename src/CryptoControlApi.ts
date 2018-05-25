@@ -1,46 +1,12 @@
-import * as fetch from 'isomorphic-fetch'
 import * as debug from 'debug'
 import * as qs from 'qs'
+
+import { IArticle, ICategoryResponse } from './interfaces'
+
 
 const logger = debug('crypto-news-api')
 const API_HOST = 'https://cryptocontrol.io/api/v1'
 
-export interface IArticle {
-    _id: string
-    publishedAt: string
-    hotness: number
-    activityHotness: number
-    primaryCategory: string
-    words: number
-    similarArticles: [{
-        _id: string
-        publishedAt: string
-        title: string
-        url: string
-    }]
-    coins: [{
-        _id: string
-        name: string
-        slug: string
-        tradingSymbol: string
-    }]
-    description: string
-    title: string
-    url: string
-    thumbnail?: string
-    originalImageUrl?: string
-}
-
-
-export interface ICategoryResponse {
-    analysis: IArticle[]
-    blockchain: IArticle[]
-    exchanges: IArticle[]
-    general: IArticle[]
-    government: IArticle[]
-    ico: IArticle[]
-    mining: IArticle[]
-}
 
 export default class CryptoControlApi {
     apikey: string
@@ -59,6 +25,7 @@ export default class CryptoControlApi {
             key: this.apikey
         })
 
+        // @ts-ignore
         return fetch(`${API_HOST}${url}?${queryString}`)
             .then((response: any) => {
                 if (response.status === 401) throw new Error('Invalid API Key')

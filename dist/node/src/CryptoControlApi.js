@@ -43,12 +43,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var node_fetch_1 = require("node-fetch");
 var debug = require("debug");
 var qs = require("qs");
 var logger = debug('crypto-news-api');
 var API_HOST = 'https://cryptocontrol.io/api/v1';
-var CryptoControlApi = /** @class */ (function () {
+var CryptoControlApi = (function () {
     function CryptoControlApi(apikey) {
         if (!apikey)
             throw new Error('No API key found. Register for an API key at https://cryptocontrol.io/apis');
@@ -58,7 +57,7 @@ var CryptoControlApi = /** @class */ (function () {
     CryptoControlApi.prototype._fetch = function (url, query) {
         if (query === void 0) { query = {}; }
         var queryString = qs.stringify(__assign({}, query, { key: this.apikey }));
-        return node_fetch_1.default("" + API_HOST + url + "?" + queryString)
+        return fetch("" + API_HOST + url + "?" + queryString)
             .then(function (response) {
             if (response.status === 401)
                 throw new Error('Invalid API Key');
@@ -71,8 +70,8 @@ var CryptoControlApi = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._fetch('/public/news')];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0: return [4, this._fetch('/public/news')];
+                    case 1: return [2, _a.sent()];
                 }
             });
         });
@@ -81,8 +80,8 @@ var CryptoControlApi = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._fetch('/public/news', { latest: true })];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0: return [4, this._fetch('/public/news', { latest: true })];
+                    case 1: return [2, _a.sent()];
                 }
             });
         });
@@ -91,8 +90,8 @@ var CryptoControlApi = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._fetch("/public/news/category")];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0: return [4, this._fetch("/public/news/category")];
+                    case 1: return [2, _a.sent()];
                 }
             });
         });
@@ -101,8 +100,8 @@ var CryptoControlApi = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._fetch("/public/news/coin/" + coinSlug)];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0: return [4, this._fetch("/public/news/coin/" + coinSlug)];
+                    case 1: return [2, _a.sent()];
                 }
             });
         });
@@ -111,8 +110,8 @@ var CryptoControlApi = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._fetch("/public/news/coin/" + coinSlug, { latest: true })];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0: return [4, this._fetch("/public/news/coin/" + coinSlug, { latest: true })];
+                    case 1: return [2, _a.sent()];
                 }
             });
         });
@@ -121,8 +120,8 @@ var CryptoControlApi = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._fetch("/public/news/coin/" + coinSlug + "/category")];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0: return [4, this._fetch("/public/news/coin/" + coinSlug + "/category")];
+                    case 1: return [2, _a.sent()];
                 }
             });
         });

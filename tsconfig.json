@@ -4,9 +4,22 @@
     "lib": [
       "es2015"
     ],
+    "types": [
+      "node"
+    ],
     "module": "commonjs",
     "declaration": true,
-    "outDir": "./dist",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "outDir": "./dist/node",
     "strict": true
-  }
+  },
+  "files": [
+    "index.node.ts"
+  ],
+  "exclude": [
+    "index.browser.ts",
+    "node_modules",
+    "test.ts"
+  ]
 }
