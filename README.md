@@ -23,9 +23,9 @@ First make sure that you've recieved an API key by visiting [https://cryptocontr
 
 ### Node.js
 ```javascript
-import CryptoControlApi from 'crypto-news-api'
+import CryptoNewsApi from 'crypto-news-api'
 
-const Api = new CryptoControlApi('API_KEY_HERE')
+const Api = new CryptoNewsApi('API_KEY_HERE')
 
 Api.getTopNews()
     .then(articles => console.log(articles))
@@ -37,7 +37,7 @@ Api.getTopNews()
 <script src="./bower_components/crypto-news-api/dist/bundle.js"></script>
 
 <script>
-    const Api = new window.CryptoControlApi('API_KEY_HERE')
+    const Api = new window.CryptoNewsApi('API_KEY_HERE')
 
     Api.getTopNews()
         .then(articles => console.log(articles))

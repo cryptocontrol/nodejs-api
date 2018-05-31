@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var API = require("./src/CryptoControlApi");
 var CryptoControlApi = API.generateAPI(fetch);
 window.CryptoControlApi = CryptoControlApi;
+window.CryptoNewsApi = CryptoControlApi;
 global.CryptoControlApi = CryptoControlApi;
+global.CryptoNewsApi = CryptoControlApi;
 exports.default = CryptoControlApi;
 __export(require("./src/CryptoControlApi"));

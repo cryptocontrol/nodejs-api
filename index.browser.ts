@@ -5,7 +5,13 @@ const CryptoControlApi = API.generateAPI(fetch)
 window.CryptoControlApi = CryptoControlApi
 
 // @ts-ignore
+window.CryptoNewsApi = CryptoControlApi
+
+// @ts-ignore
 global.CryptoControlApi = CryptoControlApi
+
+// @ts-ignore
+global.CryptoNewsApi = CryptoControlApi
 
 
 export default CryptoControlApi
