@@ -1,6 +1,6 @@
 {
   "name": "crypto-news-api",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "API to get a crypto newsfeed in your app",
   "main": "dist/node/index.node.js",
   "types": "dist/node/index.node.d.ts",
@@ -14,6 +14,8 @@
   "keywords": [
     "crypto",
     "news",
+    "cryptocurrency",
+    "blockchain",
     "api"
   ],
   "author": "Steven Enamakel <enamakel@cryptocontrol.io>",
@@ -27,7 +29,6 @@
     "@types/debug": "0.0.30",
     "@types/node-fetch": "^1.6.9",
     "@types/qs": "^6.5.1",
-    "@types/whatwg-fetch": "^0.0.33",
     "exports-loader": "^0.7.0",
     "rimraf": "^2.6.2",
     "ts-loader": "^4.3.0",
@@ -38,7 +39,6 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
-    "es6-promises": "^1.0.10",
     "node-fetch": "^2.1.2",
     "qs": "^6.5.2",
     "whatwg-fetch": "^2.0.4"

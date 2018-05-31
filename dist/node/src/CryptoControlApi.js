@@ -46,86 +46,89 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var debug = require("debug");
 var qs = require("qs");
 var logger = debug('crypto-news-api');
-var API_HOST = 'https://cryptocontrol.io/api/v1';
-var CryptoControlApi = (function () {
-    function CryptoControlApi(apikey) {
-        if (!apikey)
-            throw new Error('No API key found. Register for an API key at https://cryptocontrol.io/apis');
-        this.apikey = apikey;
-        logger('using cryptocontrol.io api v1');
-    }
-    CryptoControlApi.prototype._fetch = function (url, query) {
-        if (query === void 0) { query = {}; }
-        var queryString = qs.stringify(__assign({}, query, { key: this.apikey }));
-        return fetch("" + API_HOST + url + "?" + queryString)
-            .then(function (response) {
-            if (response.status === 401)
-                throw new Error('Invalid API Key');
-            if (response.status !== 200)
-                throw new Error('Bad response from the CryptoControl server');
-            return response.json();
-        });
-    };
-    CryptoControlApi.prototype.getTopNews = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, this._fetch('/public/news')];
-                    case 1: return [2, _a.sent()];
-                }
+var API_HOST = 'https://cryptocontrol.io/api/public';
+var generateAPI = function (fetch) {
+    var CryptoControlApi = (function () {
+        function CryptoControlApi(apikey) {
+            if (!apikey)
+                throw new Error('No API key found. Register for an API key at https://cryptocontrol.io/apis');
+            this.apikey = apikey;
+            logger('using cryptocontrol.io api v1');
+        }
+        CryptoControlApi.prototype._fetch = function (url, query) {
+            if (query === void 0) { query = {}; }
+            var queryString = qs.stringify(__assign({}, query, { key: this.apikey }));
+            return fetch("" + API_HOST + url + "?" + queryString)
+                .then(function (response) {
+                if (response.status === 401)
+                    throw new Error('Invalid API Key');
+                if (response.status !== 200)
+                    throw new Error('Bad response from the CryptoControl server');
+                return response.json();
             });
-        });
-    };
-    CryptoControlApi.prototype.getLatestNews = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, this._fetch('/public/news', { latest: true })];
-                    case 1: return [2, _a.sent()];
-                }
+        };
+        CryptoControlApi.prototype.getTopNews = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch('/news')];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
             });
-        });
-    };
-    CryptoControlApi.prototype.getTopNewsByCategory = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, this._fetch("/public/news/category")];
-                    case 1: return [2, _a.sent()];
-                }
+        };
+        CryptoControlApi.prototype.getLatestNews = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch('/news', { latest: true })];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
             });
-        });
-    };
-    CryptoControlApi.prototype.getTopNewsByCoin = function (coinSlug) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, this._fetch("/public/news/coin/" + coinSlug)];
-                    case 1: return [2, _a.sent()];
-                }
+        };
+        CryptoControlApi.prototype.getTopNewsByCategory = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/news/category")];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
             });
-        });
-    };
-    CryptoControlApi.prototype.getLatestNewsByCoin = function (coinSlug) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, this._fetch("/public/news/coin/" + coinSlug, { latest: true })];
-                    case 1: return [2, _a.sent()];
-                }
+        };
+        CryptoControlApi.prototype.getTopNewsByCoin = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/news/coin/" + coinSlug)];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
             });
-        });
-    };
-    CryptoControlApi.prototype.getTopNewsByCoinCategory = function (coinSlug) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, this._fetch("/public/news/coin/" + coinSlug + "/category")];
-                    case 1: return [2, _a.sent()];
-                }
+        };
+        CryptoControlApi.prototype.getLatestNewsByCoin = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/news/coin/" + coinSlug, { latest: true })];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
             });
-        });
-    };
+        };
+        CryptoControlApi.prototype.getTopNewsByCoinCategory = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/news/coin/" + coinSlug + "/category")];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        return CryptoControlApi;
+    }());
     return CryptoControlApi;
-}());
-exports.default = CryptoControlApi;
+};
+exports.generateAPI = generateAPI;

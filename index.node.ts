@@ -1,4 +1,6 @@
-import 'node-fetch'
+import * as fetch from 'node-fetch'
 
-import CryptoControlApi from './src/CryptoControlApi'
-export default CryptoControlApi
+import * as API from './src/CryptoControlApi'
+
+export * from './src/CryptoControlApi'
+export default API.generateAPI(fetch)

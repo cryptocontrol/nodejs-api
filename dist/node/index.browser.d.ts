@@ -1,6 +1,5 @@
 import * as API from './src/CryptoControlApi';
-export * from './src/CryptoControlApi';
-declare const _default: {
+declare const CryptoControlApi: {
     new (apikey: string): {
         apikey: string;
         _fetch(url: string, query?: any): Promise<any>;
@@ -12,4 +11,5 @@ declare const _default: {
         getTopNewsByCoinCategory(coinSlug: string): Promise<API.ICategoryResponse>;
     };
 };
-export default _default;
+export default CryptoControlApi;
+export * from './src/CryptoControlApi';
