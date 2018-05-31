@@ -7,4 +7,3 @@ var fetch = require("node-fetch");
 var API = require("./src/CryptoControlApi");
 __export(require("./src/CryptoControlApi"));
 exports.default = API.generateAPI(fetch);
-module.exports = API.generateAPI(fetch);

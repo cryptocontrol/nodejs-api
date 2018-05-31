@@ -4,4 +4,3 @@ import * as API from './src/CryptoControlApi'
 
 export * from './src/CryptoControlApi'
 export default API.generateAPI(fetch)
-module.exports = API.generateAPI(fetch)
