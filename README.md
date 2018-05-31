@@ -20,8 +20,10 @@ bower install crypto-news-api --save
 ## Usage
 First make sure that you've recieved an API key by visiting [https://cryptocontrol.io/apis](https://cryptocontrol.io/apis). With the API key you can write the following code.
 
+API access is rate-limited to 5 req/sec and 10,000 req/hour.
 
-### Node.js
+
+### Node.js ES6/Typescript
 ```javascript
 import CryptoNewsApi from 'crypto-news-api'
 
@@ -32,10 +34,20 @@ Api.getTopNews()
     .catch(error => console.error(error))
 ```
 
+### Node.js ES5
+```javascript
+var CryptoNewsAPI = require('crypto-news-api').default
+
+const Api = new CryptoNewsAPI('API_KEY_HERE')
+
+Api.getTopNews()
+    .then(function (articles) { console.log(articles) })
+    .catch(function (error) { console.log(error) })
+```
+
 ### Bower/Webpack
 ```html
 <script src="./bower_components/crypto-news-api/dist/bundle.js"></script>
-
 <script>
     const Api = new window.CryptoNewsApi('API_KEY_HERE')
 
