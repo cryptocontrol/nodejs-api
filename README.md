@@ -20,7 +20,7 @@ bower install crypto-news-api --save
 ## Usage
 First make sure that you've recieved an API key by visiting [https://cryptocontrol.io/apis](https://cryptocontrol.io/apis). With the API key, you can write the following code.
 
-**NOTE**: API access is rate-limited to 5 req/sec and 10,000 req/hour. If you're interacting with large number of clients, it'll be a good idea to cache your API calls.
+**NOTE**: API access is rate-limited to 5 req/sec and 10,000 req/hour. It'll be a good idea to cache your API calls.
 
 
 ### Node.js ES6/Typescript
