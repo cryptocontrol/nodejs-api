@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "crypto-news-api": "^1.0.14"
+    "crypto-news-api": "^1.0.20"
   }
 }
