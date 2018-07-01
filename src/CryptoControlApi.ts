@@ -5,7 +5,7 @@ import { IArticle, ICategoryResponse, ITweet, IRedditItem } from './interfaces'
 
 
 const logger = debug('crypto-news-api')
-const API_HOST = 'https://cryptocontrol.io/api/public'
+const API_HOST = 'https://cryptocontrol.io/api/v1/public'
 
 
 const generateAPI = (fetch: any) => {
