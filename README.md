@@ -32,6 +32,21 @@ const Api = new CryptoNewsApi('API_KEY_HERE')
 Api.getTopNews()
     .then(articles => console.log(articles))
     .catch(error => console.error(error))
+
+
+Api.getTopNewsByCoin("bitcoin")
+    .then(articles => console.log(articles))
+    .catch(error => console.error(error))
+
+
+Api.getLatestTweetsByCoin("bitcoin")
+    .then(tweets => console.log(tweets))
+    .catch(error => console.error(error))
+
+
+Api.getLatestRedditPostsByCoin("bitcoin")
+    .then(redditPosts => console.log(redditPosts))
+    .catch(error => console.error(error))
 ```
 
 ### Node.js ES5
@@ -43,6 +58,21 @@ const Api = new CryptoNewsAPI('API_KEY_HERE')
 Api.getTopNews()
     .then(function (articles) { console.log(articles) })
     .catch(function (error) { console.log(error) })
+
+
+Api.getTopNewsByCoin("bitcoin")
+    .then(function (articles) { console.log(articles) })
+    .catch(function (error) { console.log(error) })
+
+
+Api.getLatestTweetsByCoin("bitcoin")
+    .then(function (tweets) { console.log(tweets) })
+    .catch(function (error) { console.log(error) })
+
+
+Api.getLatestRedditPostsByCoin("bitcoin")
+    .then(function (redditPosts) { console.log(redditPosts) })
+    .catch(function (error) { console.log(error) })
 ```
 
 ### Bower/Webpack
@@ -52,8 +82,23 @@ Api.getTopNews()
     const Api = new window.CryptoNewsApi('API_KEY_HERE')
 
     Api.getTopNews()
-        .then(articles => console.log(articles))
-        .catch(error => console.error(error))
+        .then(function (articles) { console.log(articles) })
+        .catch(function (error) { console.log(error) })
+
+
+    Api.getTopNewsByCoin("bitcoin")
+        .then(function (articles) { console.log(articles) })
+        .catch(function (error) { console.log(error) })
+
+
+    Api.getLatestTweetsByCoin("bitcoin")
+        .then(function (tweets) { console.log(tweets) })
+        .catch(function (error) { console.log(error) })
+
+
+    Api.getLatestRedditPostsByCoin("bitcoin")
+        .then(function (redditPosts) { console.log(redditPosts) })
+        .catch(function (error) { console.log(error) })
 </script>
 ```
 
