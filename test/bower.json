@@ -1,0 +1,20 @@
+{
+  "name": "crypto-news-api-test",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Steven Enamakel <enamakel@cryptocontrol.io>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/cryptocontrol/nodejs-api",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "crypto-news-api": "^1.0.13"
+  }
+}

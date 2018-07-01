@@ -1,4 +1,4 @@
-import CryptoControlApi, { IArticle, ICategoryResponse } from '../dist/node/index.node'
+import CryptoControlApi, { IArticle, ICategoryResponse, ITweet, IRedditItem } from 'crypto-news-api'
 
 
 // @ts-ignore
@@ -14,4 +14,16 @@ api.getLatestNews()
 api.getTopNewsByCoinCategory("bitcoin")
     .then((categories: ICategoryResponse) => {
         console.log(categories)
+    })
+
+
+api.getLatestTweetsByCoin("bitcoin")
+    .then((tweets: ITweet[]) => {
+        console.log(tweets)
+    })
+
+
+api.getLatestRedditPostsByCoin("bitcoin")
+    .then((tweets: IRedditItem[]) => {
+        console.log(tweets)
     })
