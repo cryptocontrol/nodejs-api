@@ -65,6 +65,10 @@ Api.getTopNews()
 - **getTopNewsByCoin(coinSlug: String)** Get the top news articles for a specific coin from the CryptoControl API.
 - **getLatestNewsByCoin(coinSlug: String)** Get the latest news articles for a specific coin from the CryptoControl News API.
 - **getTopNewsByCoinCategory(coinSlug: String)** Get news articles grouped by category for a specific coin from the CryptoControl News API.
+- **getTopRedditPostsByCoin(coin: String)** Get top reddit posts for a particular coin
+- **getLatestRedditPostsByCoin(coin: String)** Get latest reddit posts for a particular coin
+- **getTopTweetsByCoin(coin: String)** Get top tweets for a particular coin
+- **getLatestTweetsByCoin(coin: String)** Get latest tweets for a particular coin
 
 The coin slugs are the coin id's used from the CoinMarketCap api. You can see the full list of coins here: [https://api.coinmarketcap.com/v1/ticker/?limit=2000](https://api.coinmarketcap.com/v1/ticker/?limit=2000)
 
