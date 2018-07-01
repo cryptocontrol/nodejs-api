@@ -1,29 +1,30 @@
-import CryptoControlApi, { IArticle, ICategoryResponse, ITweet, IRedditItem } from 'crypto-news-api'
+import CryptoControlApi, { IFeed } from 'crypto-news-api'
 
 
 // @ts-ignore
-const api = new CryptoControlApi(process.env.NEWS_API_KEY)
+const Api = new CryptoControlApi(process.env.NEWS_API_KEY)
 
 
-api.getLatestNews()
-    .then((articles: IArticle[]) => {
-        console.log(articles)
-    })
+Api.getLatestNews()
+    // .then(articles => console.log(articles))
+    .catch((error: Error)  => console.error(error))
 
 
-api.getTopNewsByCoinCategory("bitcoin")
-    .then((categories: ICategoryResponse) => {
-        console.log(categories)
-    })
+Api.getTopNewsByCoin("bitcoin")
+    // .then(articles => console.log(articles))
+    .catch((error: Error)  => console.error(error))
 
 
-api.getLatestTweetsByCoin("bitcoin")
-    .then((tweets: ITweet[]) => {
-        console.log(tweets)
-    })
+Api.getLatestTweetsByCoin("bitcoin")
+    // .then(tweets => console.log(tweets))
+    .catch((error: Error)  => console.error(error))
 
 
-api.getLatestRedditPostsByCoin("bitcoin")
-    .then((tweets: IRedditItem[]) => {
-        console.log(tweets)
-    })
+Api.getLatestRedditPostsByCoin("bitcoin")
+    // .then(redditPosts => console.log(redditPosts))
+    .catch((error: Error)  => console.error(error))
+
+
+Api.getTopFeedByCoin("bitcoin")
+    // .then((feed: IFeed[]) => console.log(feed))
+    .catch((error: Error)  => console.error(error))
