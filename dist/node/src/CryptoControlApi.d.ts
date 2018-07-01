@@ -1,4 +1,4 @@
-import { IArticle, ICategoryResponse } from './interfaces';
+import { IArticle, ICategoryResponse, ITweet, IRedditItem } from './interfaces';
 declare const generateAPI: (fetch: any) => {
     new (apikey: string): {
         apikey: string;
@@ -9,6 +9,10 @@ declare const generateAPI: (fetch: any) => {
         getTopNewsByCoin(coinSlug: string): Promise<IArticle[]>;
         getLatestNewsByCoin(coinSlug: string): Promise<IArticle[]>;
         getTopNewsByCoinCategory(coinSlug: string): Promise<ICategoryResponse>;
+        getTopTweeetsByCoin(coinSlug: string): Promise<ITweet[]>;
+        getLatestTweetsByCoin(coinSlug: string): Promise<ITweet[]>;
+        getTopRedditPostsByCoin(coinSlug: string): Promise<IRedditItem[]>;
+        getLatestRedditPostsByCoin(coinSlug: string): Promise<IRedditItem[]>;
     };
 };
-export { IArticle, ICategoryResponse, generateAPI };
+export { generateAPI, IArticle, ICategoryResponse, IRedditItem, ITweet };

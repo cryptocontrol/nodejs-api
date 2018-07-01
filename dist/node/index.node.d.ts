@@ -10,6 +10,10 @@ declare const _default: {
         getTopNewsByCoin(coinSlug: string): Promise<API.IArticle[]>;
         getLatestNewsByCoin(coinSlug: string): Promise<API.IArticle[]>;
         getTopNewsByCoinCategory(coinSlug: string): Promise<API.ICategoryResponse>;
+        getTopTweeetsByCoin(coinSlug: string): Promise<API.ITweet[]>;
+        getLatestTweetsByCoin(coinSlug: string): Promise<API.ITweet[]>;
+        getTopRedditPostsByCoin(coinSlug: string): Promise<API.IRedditItem[]>;
+        getLatestRedditPostsByCoin(coinSlug: string): Promise<API.IRedditItem[]>;
     };
 };
 export default _default;

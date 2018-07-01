@@ -1,8 +1,7 @@
 import * as debug from 'debug'
 import * as qs from 'qs'
 
-import { IArticle, ICategoryResponse } from './interfaces'
-import fetch from 'node-fetch';
+import { IArticle, ICategoryResponse, ITweet, IRedditItem } from './interfaces'
 
 
 const logger = debug('crypto-news-api')
@@ -64,6 +63,26 @@ const generateAPI = (fetch: any) => {
         public async getTopNewsByCoinCategory(coinSlug: string): Promise<ICategoryResponse> {
             return await this._fetch(`/news/coin/${coinSlug}/category`)
         }
+
+
+        public async getTopTweeetsByCoin(coinSlug: string): Promise<ITweet[]> {
+            return await this._fetch(`/tweets/coin/${coinSlug}`)
+        }
+
+
+        public async getLatestTweetsByCoin(coinSlug: string): Promise<ITweet[]> {
+            return await this._fetch(`/tweets/coin/${coinSlug}`, { latest: true })
+        }
+
+
+        public async getTopRedditPostsByCoin(coinSlug: string): Promise<IRedditItem[]> {
+            return await this._fetch(`/reddit/coin/${coinSlug}`)
+        }
+
+
+        public async getLatestRedditPostsByCoin(coinSlug: string): Promise<IRedditItem[]> {
+            return await this._fetch(`/reddit/coin/${coinSlug}`, { latest: true })
+        }
     }
 
 
@@ -72,7 +91,9 @@ const generateAPI = (fetch: any) => {
 
 
 export {
+    generateAPI,
     IArticle,
     ICategoryResponse,
-    generateAPI
+    IRedditItem,
+    ITweet
 }

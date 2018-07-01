@@ -127,6 +127,46 @@ var generateAPI = function (fetch) {
                 });
             });
         };
+        CryptoControlApi.prototype.getTopTweeetsByCoin = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/tweets/coin/" + coinSlug)];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        CryptoControlApi.prototype.getLatestTweetsByCoin = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/tweets/coin/" + coinSlug, { latest: true })];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        CryptoControlApi.prototype.getTopRedditPostsByCoin = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/reddit/coin/" + coinSlug)];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        CryptoControlApi.prototype.getLatestRedditPostsByCoin = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/reddit/coin/" + coinSlug, { latest: true })];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
         return CryptoControlApi;
     }());
     return CryptoControlApi;
