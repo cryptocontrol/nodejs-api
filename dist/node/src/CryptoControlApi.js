@@ -46,7 +46,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var debug = require("debug");
 var qs = require("qs");
 var logger = debug('crypto-news-api');
-var API_HOST = 'https://cryptocontrol.io/api/public';
+var API_HOST = 'https://cryptocontrol.io/api/v1/public';
 var generateAPI = function (fetch) {
     var CryptoControlApi = (function () {
         function CryptoControlApi(apikey) {
@@ -162,6 +162,26 @@ var generateAPI = function (fetch) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4, this._fetch("/reddit/coin/" + coinSlug, { latest: true })];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        CryptoControlApi.prototype.getTopFeedByCoin = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/feed/coin/" + coinSlug)];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        CryptoControlApi.prototype.getLatestFeedByCoin = function (coinSlug) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/feed/coin/" + coinSlug, { latest: true })];
                         case 1: return [2, _a.sent()];
                     }
                 });

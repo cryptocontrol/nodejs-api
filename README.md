@@ -114,6 +114,8 @@ Api.getLatestRedditPostsByCoin("bitcoin")
 - **getLatestRedditPostsByCoin(coin: String)** Get latest reddit posts for a particular coin
 - **getTopTweetsByCoin(coin: String)** Get top tweets for a particular coin
 - **getLatestTweetsByCoin(coin: String)** Get latest tweets for a particular coin
+- **getTopFeedByCoin(coin: String)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by time)
+- **getLatestFeedByCoin(coin: String)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by relevance)
 
 The coin slugs are the coin id's used from the CoinMarketCap api. You can see the full list of coins here: [https://api.coinmarketcap.com/v1/ticker/?limit=2000](https://api.coinmarketcap.com/v1/ticker/?limit=2000)
 

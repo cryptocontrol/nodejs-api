@@ -1,7 +1,7 @@
 import * as debug from 'debug'
 import * as qs from 'qs'
 
-import { IArticle, ICategoryResponse, ITweet, IRedditItem } from './interfaces'
+import { IArticle, ICategoryResponse, ITweet, IRedditItem, IFeed } from './interfaces'
 
 
 const logger = debug('crypto-news-api')
@@ -83,6 +83,16 @@ const generateAPI = (fetch: any) => {
         public async getLatestRedditPostsByCoin(coinSlug: string): Promise<IRedditItem[]> {
             return await this._fetch(`/reddit/coin/${coinSlug}`, { latest: true })
         }
+
+
+        public async getTopFeedByCoin(coinSlug: string): Promise<IFeed[]> {
+            return await this._fetch(`/feed/coin/${coinSlug}`)
+        }
+
+
+        public async getLatestFeedByCoin(coinSlug: string): Promise<IFeed[]> {
+            return await this._fetch(`/feed/coin/${coinSlug}`, { latest: true })
+        }
     }
 
 
@@ -94,6 +104,7 @@ export {
     generateAPI,
     IArticle,
     ICategoryResponse,
+    IFeed,
     IRedditItem,
     ITweet
 }

@@ -72,3 +72,11 @@ export interface ITweet {
     twitteratiScore?: number
     username: string
 }
+
+
+export interface IFeed {
+    type: 'article' | 'tweet' | 'reddit'
+    tweet: ITweet
+    reddit: IRedditItem
+    article: IArticle
+}

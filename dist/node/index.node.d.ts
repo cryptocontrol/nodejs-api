@@ -14,6 +14,8 @@ declare const _default: {
         getLatestTweetsByCoin(coinSlug: string): Promise<API.ITweet[]>;
         getTopRedditPostsByCoin(coinSlug: string): Promise<API.IRedditItem[]>;
         getLatestRedditPostsByCoin(coinSlug: string): Promise<API.IRedditItem[]>;
+        getTopFeedByCoin(coinSlug: string): Promise<API.IFeed[]>;
+        getLatestFeedByCoin(coinSlug: string): Promise<API.IFeed[]>;
     };
 };
 export default _default;
