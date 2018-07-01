@@ -104,12 +104,12 @@ Api.getLatestRedditPostsByCoin("bitcoin")
 
 ## Available Functions
 
-- **getTopNews()** Get the top news articles from the CryptoControl News API.
-- **getLatestNews()** Get the latest news articles from the CryptoControl News API.
-- **getTopNewsByCategory()** Get news articles grouped by category from the CryptoControl News API.
-- **getTopNewsByCoin(coinSlug: String)** Get the top news articles for a specific coin from the CryptoControl API.
-- **getLatestNewsByCoin(coinSlug: String)** Get the latest news articles for a specific coin from the CryptoControl News API.
-- **getTopNewsByCoinCategory(coinSlug: String)** Get news articles grouped by category for a specific coin from the CryptoControl News API.
+- **getTopNews()** Get the top news articles.
+- **getLatestNews()** Get the latest news articles.
+- **getTopNewsByCategory()** Get news articles grouped by category.
+- **getTopNewsByCoin(coinSlug: String)** Get the top news articles for a specific coin.
+- **getLatestNewsByCoin(coinSlug: String)** Get the latest news articles for a specific coin.
+- **getTopNewsByCoinCategory(coinSlug: String)** Get news articles grouped by category for a specific coin.
 - **getTopRedditPostsByCoin(coin: String)** Get top reddit posts for a particular coin
 - **getLatestRedditPostsByCoin(coin: String)** Get latest reddit posts for a particular coin
 - **getTopTweetsByCoin(coin: String)** Get top tweets for a particular coin
