@@ -1,4 +1,4 @@
-import CryptoControlApi, { IFeed } from 'crypto-news-api'
+import CryptoControlApi, { IFeed } from '../dist/node/index.node'
 
 
 // @ts-ignore
@@ -26,5 +26,5 @@ Api.getLatestRedditPostsByCoin("bitcoin")
 
 
 Api.getTopFeedByCoin("bitcoin")
-    // .then((feed: IFeed[]) => console.log(feed))
+    .then((feed: IFeed[]) => console.log(feed))
     .catch((error: Error)  => console.error(error))

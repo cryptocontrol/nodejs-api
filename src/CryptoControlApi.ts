@@ -21,12 +21,14 @@ const generateAPI = (fetch: any) => {
 
 
         _fetch(url: string, query: any = {}): Promise<any> {
-            const queryString = qs.stringify({
-                ...query,
-                key: this.apikey
-            })
+            const queryString = qs.stringify(query)
 
-            return fetch(`${API_HOST}${url}?${queryString}`)
+            return fetch(`${API_HOST}${url}?${queryString}`, {
+                headers: {
+                    'user-agent': 'CryptoControl Node.js API',
+                    'x-api-key': this.apikey
+                }
+            })
                 .then((response: any) => {
                     if (response.status === 401) throw new Error('Invalid API Key')
                     if (response.status !== 200) throw new Error('Bad response from the CryptoControl server')
