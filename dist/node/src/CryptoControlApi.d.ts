@@ -1,7 +1,8 @@
 import { IArticle, ICategoryResponse, ITweet, IRedditItem, IFeed, ICoinDetail, ICombinedFeed } from './interfaces';
 declare const generateAPI: (fetch: any) => {
-    new (apikey: string): {
+    new (apikey: string, proxyURL?: string | undefined): {
         apikey: string;
+        proxyURL?: string | undefined;
         _fetch(url: string, query?: any): Promise<any>;
         getTopNews(language?: string): Promise<IArticle[]>;
         getLatestNews(language?: string): Promise<IArticle[]>;

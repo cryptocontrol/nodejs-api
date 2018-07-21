@@ -38,19 +38,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var debug = require("debug");
 var qs = require("qs");
 var logger = debug('crypto-news-api');
-var API_HOST = 'https://cryptocontrol.io/api/v1/public';
 var generateAPI = function (fetch) {
     var CryptoControlApi = (function () {
-        function CryptoControlApi(apikey) {
+        function CryptoControlApi(apikey, proxyURL) {
             if (!apikey)
                 throw new Error('No API key found. Register for an API key at https://cryptocontrol.io/apis');
             this.apikey = apikey;
+            this.proxyURL = proxyURL;
             logger('using cryptocontrol.io api v1');
         }
         CryptoControlApi.prototype._fetch = function (url, query) {
             if (query === void 0) { query = {}; }
             var queryString = qs.stringify(query);
-            return fetch("" + API_HOST + url + "?" + queryString, {
+            var API_HOST = 'https://cryptocontrol.io/api/v1/public';
+            var HOST = this.proxyURL || API_HOST;
+            return fetch("" + HOST + url + "?" + queryString, {
                 headers: {
                     'user-agent': 'CryptoControl Node.js API v2.2.0',
                     'x-api-key': this.apikey

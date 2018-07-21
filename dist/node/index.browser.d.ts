@@ -1,7 +1,8 @@
 import * as API from './src/CryptoControlApi';
 declare const CryptoControlApi: {
-    new (apikey: string): {
+    new (apikey: string, proxyURL?: string | undefined): {
         apikey: string;
+        proxyURL?: string | undefined;
         _fetch(url: string, query?: any): Promise<any>;
         getTopNews(language?: string): Promise<API.IArticle[]>;
         getLatestNews(language?: string): Promise<API.IArticle[]>;
