@@ -26,34 +26,9 @@ First make sure that you've recieved an API key by visiting [https://cryptocontr
 ### Node.js ES6/Typescript
 ```javascript
 import CryptoNewsApi from 'crypto-news-api'
+// For ES5 use: var CryptoNewsAPI = require('crypto-news-api').default
 
 const Api = new CryptoNewsApi('API_KEY_HERE')
-
-Api.getTopNews()
-    .then(articles => console.log(articles))
-    .catch(error => console.error(error))
-
-
-Api.getTopNewsByCoin("bitcoin")
-    .then(articles => console.log(articles))
-    .catch(error => console.error(error))
-
-
-Api.getLatestTweetsByCoin("bitcoin")
-    .then(tweets => console.log(tweets))
-    .catch(error => console.error(error))
-
-
-Api.getLatestRedditPostsByCoin("bitcoin")
-    .then(redditPosts => console.log(redditPosts))
-    .catch(error => console.error(error))
-```
-
-### Node.js ES5
-```javascript
-var CryptoNewsAPI = require('crypto-news-api').default
-
-const Api = new CryptoNewsAPI('API_KEY_HERE')
 
 // Get top news
 Api.getTopNews()
@@ -142,39 +117,74 @@ Api.getCoinDetails("ethereum")
 - **getLatestItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (seperated) for a particular coin (sorted by relevance)
 - **getCoinDetails(coin: String)** Get all details about a particular coin (links, description, subreddits, twitter etc..)
 
+`lang` allows developers to choose which language they'd like to get the feed. Currently CryptoControl supports English ('en') and Russian ('ru') article feeds.
+
 The coin slugs are the coin id's used from the CoinMarketCap api. You can see the full list of coins here: [https://api.coinmarketcap.com/v1/ticker/?limit=2000](https://api.coinmarketcap.com/v1/ticker/?limit=2000)
 
-## Sample Response from the API
+## Sample response from the server
+
 ```javascript
-[
-    {
-        "publishedAt": "2018-05-23T06:30:51.000Z",
-        "hotness": 70698.68569444444,
-        "activityHotness": 1.6,
-        "primaryCategory": "General",
-        "words": 302,
-        "similarArticles": [
-            {
-                "publishedAt": "2018-05-23T03:00:05.000Z",
-                "_id": "5b04de8d18f173000f9a6d72",
-                "title": "PayPal: We’ll ‘Definitely Support’ Bitcoin If It Becomes ‘Better Currency’",
-                "url": "https://cryptocontrol.io/r/api/article/5b04de8d18f173000f9a6d72?ref=5ac11440ec0af7be35528459"
-            }
-        ],
-        "coins": [
-            {
-                "_id": "59cb59e81c073f09e76f614b",
-                "name": "Bitcoin",
-                "slug": "bitcoin",
-                "tradingSymbol": "btc"
-            }
-        ],
-        "_id": "5b07ea76214428000f55a513",
-        "description": "Welcome to Crypto Daily™ News, this news piece \"Ripple XRP And Bitcoin Cash Now Live On Revolut\" is breaking news from the Crypto sector.",
-        "title": "Ripple XRP And Bitcoin Cash Now Live On Revolut - Crypto Daily™",
-        "url": "https://cryptocontrol.io/r/api/article/5b07ea76214428000f55a513?ref=5ac11440ec0af7be35528459",
-        "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b07ea76214428000f55a513?ref=5ac11440ec0af7be35528459",
-        "originalImageUrl": "https://cryptodaily.co.uk/wp-content/uploads/2018/05/ripple-bitcoincash-credit.jpg"
-    }
-]
+[{
+    "hotness": 70862.60323026273,
+    "activityHotness": 4.601980262729618,
+    "primaryCategory": "General",
+    "words": 1444,
+    "similarArticles": [
+        {
+            "_id": "5b363b525b113200191a1d5f",
+            "publishedAt": "2018-06-29T13:42:44.000Z",
+            "title": "Op-Ed: Challenge of Mining Centralization Unveils Bitcoin’s Elegant Design",
+            "url": "https://cryptocontrol.io/r/api/article/5b363b525b113200191a1d5f?ref=5ac11440ec0af7be35528459",
+            "source": {
+                "_id": "59d8c361ef8bf95cc2bfb66f",
+                "name": "Bitcoin Magazine",
+                "url": "https://bitcoinmagazine.com/"
+            },
+            "sourceDomain": "bitcoinmagazine.com",
+            "thumbnail": null
+        },
+        {
+            "_id": "5b3865405c5681000f2f7407",
+            "publishedAt": "2018-06-30T14:58:00.000Z",
+            "title": "Arbitration on a Governed Blockchain: EOS’ Crisis of Dispute Resolution",
+            "url": "https://cryptocontrol.io/r/api/article/5b3865405c5681000f2f7407?ref=5ac11440ec0af7be35528459",
+            "source": {
+                "_id": "59d70be3ef8bf95cc2aa2b4f",
+                "name": "CoinTelegraph",
+                "url": "https://cointelegraph.com/"
+            },
+            "sourceDomain": "cointelegraph.com",
+            "thumbnail": null
+        }
+    ],
+    "coins": [
+        {
+            "_id": "59cb59f9b0836b0a63aebc7c",
+            "name": "Ethereum",
+            "tradingSymbol": "eth",
+            "slug": "ethereum"
+        },
+        {
+            "_id": "59d21e9b83a0523906a45dc5",
+            "name": "EOS",
+            "slug": "eos",
+            "tradingSymbol": "eos"
+        }
+    ],
+    "_id": "5b3a2e1b104844000fd64e28",
+    "description": "The EOS governance disaster offers a strong reminder of how entrenched human mistrust can be difficult to overcome.",
+    "publishedAt": "2018-07-02T12:00:27.000Z",
+    "title": "It's Too Soon for On-Chain Governance - CoinDesk",
+    "url": "https://cryptocontrol.io/r/api/article/5b3a2e1b104844000fd64e28?ref=5ac11440ec0af7be35528459",
+    "source": {
+        "_id": "59ce11393a44cf289a9a71f5",
+        "name": "CoinDesk",
+        "url": "http://coindesk.com"
+    },
+    "thumbnail": "https://cryptocontrol.io/r/thumbnail/5b3a2e1b104844000fd64e28?ref=5ac11440ec0af7be35528459",
+    "sourceName": "CoinDesk",
+    "sourceUrl": "http://coindesk.com",
+    "sourceDomain": "coindesk.com",
+    "originalImageUrl": "https://media.coindesk.com/uploads/2018/06/shutterstock_153840266-e1530230263310.jpg"
+}]
 ```
