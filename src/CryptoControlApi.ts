@@ -1,7 +1,7 @@
 import * as debug from 'debug'
 import * as qs from 'qs'
 
-import { IArticle, ICategoryResponse, ITweet, IRedditItem, IFeed } from './interfaces'
+import { IArticle, ICategoryResponse, ITweet, IRedditItem, IFeed, ICoinDetail, ICombinedFeed } from './interfaces'
 
 
 const logger = debug('crypto-news-api')
@@ -25,7 +25,7 @@ const generateAPI = (fetch: any) => {
 
             return fetch(`${API_HOST}${url}?${queryString}`, {
                 headers: {
-                    'user-agent': 'CryptoControl Node.js API',
+                    'user-agent': 'CryptoControl Node.js API v2.2.0',
                     'x-api-key': this.apikey
                 }
             })
@@ -37,63 +37,78 @@ const generateAPI = (fetch: any) => {
         }
 
 
-        public async getTopNews(): Promise<IArticle[]> {
-            return await this._fetch('/news')
+        public async getTopNews(language = 'en'): Promise<IArticle[]> {
+            return await this._fetch('/news', { language })
         }
 
 
-        public async getLatestNews(): Promise<IArticle[]> {
-            return await this._fetch('/news', { latest: true })
+        public async getLatestNews(language = 'en'): Promise<IArticle[]> {
+            return await this._fetch('/news', { latest: true, language })
         }
 
 
-        public async getTopNewsByCategory(): Promise<ICategoryResponse> {
-            return await this._fetch(`/news/category`)
+        public async getTopNewsByCategory(language = 'en'): Promise<ICategoryResponse> {
+            return await this._fetch(`/news/category`, { language })
         }
 
 
-        public async getTopNewsByCoin(coinSlug: string): Promise<IArticle[]> {
-            return await this._fetch(`/news/coin/${coinSlug}`)
+        public async getTopNewsByCoin(coinSlug: string, language = 'en'): Promise<IArticle[]> {
+            return await this._fetch(`/news/coin/${coinSlug}`, { language })
         }
 
 
-        public async getLatestNewsByCoin(coinSlug: string): Promise<IArticle[]> {
-            return await this._fetch(`/news/coin/${coinSlug}`, { latest: true })
+        public async getLatestNewsByCoin(coinSlug: string, language = 'en'): Promise<IArticle[]> {
+            return await this._fetch(`/news/coin/${coinSlug}`, { latest: true, language })
         }
 
 
-        public async getTopNewsByCoinCategory(coinSlug: string): Promise<ICategoryResponse> {
-            return await this._fetch(`/news/coin/${coinSlug}/category`)
+        public async getTopNewsByCoinCategory(coinSlug: string, language = 'en'): Promise<ICategoryResponse> {
+            return await this._fetch(`/news/coin/${coinSlug}/category`, { language })
         }
 
 
-        public async getTopTweeetsByCoin(coinSlug: string): Promise<ITweet[]> {
-            return await this._fetch(`/tweets/coin/${coinSlug}`)
+        public async getTopTweeetsByCoin(coinSlug: string, language = 'en'): Promise<ITweet[]> {
+            return await this._fetch(`/tweets/coin/${coinSlug}`, { language })
         }
 
 
-        public async getLatestTweetsByCoin(coinSlug: string): Promise<ITweet[]> {
-            return await this._fetch(`/tweets/coin/${coinSlug}`, { latest: true })
+        public async getLatestTweetsByCoin(coinSlug: string, language = 'en'): Promise<ITweet[]> {
+            return await this._fetch(`/tweets/coin/${coinSlug}`, { latest: true, language })
         }
 
 
-        public async getTopRedditPostsByCoin(coinSlug: string): Promise<IRedditItem[]> {
-            return await this._fetch(`/reddit/coin/${coinSlug}`)
+        public async getTopRedditPostsByCoin(coinSlug: string, language = 'en'): Promise<IRedditItem[]> {
+            return await this._fetch(`/reddit/coin/${coinSlug}`, { language })
         }
 
 
-        public async getLatestRedditPostsByCoin(coinSlug: string): Promise<IRedditItem[]> {
-            return await this._fetch(`/reddit/coin/${coinSlug}`, { latest: true })
+        public async getLatestRedditPostsByCoin(coinSlug: string, language = 'en'): Promise<IRedditItem[]> {
+            return await this._fetch(`/reddit/coin/${coinSlug}`, { latest: true, language })
         }
 
 
-        public async getTopFeedByCoin(coinSlug: string): Promise<IFeed[]> {
-            return await this._fetch(`/feed/coin/${coinSlug}`)
+        public async getTopFeedByCoin(coinSlug: string, language = 'en'): Promise<IFeed[]> {
+            return await this._fetch(`/feed/coin/${coinSlug}`, { language })
         }
 
 
-        public async getLatestFeedByCoin(coinSlug: string): Promise<IFeed[]> {
-            return await this._fetch(`/feed/coin/${coinSlug}`, { latest: true })
+        public async getLatestFeedByCoin(coinSlug: string, language = 'en'): Promise<IFeed[]> {
+            return await this._fetch(`/feed/coin/${coinSlug}`, { latest: true, language })
+        }
+
+
+        public async getTopItemsByCoin(coinSlug: string, language = 'en'): Promise<ICombinedFeed[]> {
+            return await this._fetch(`/all/coin/${coinSlug}`, { language })
+        }
+
+
+        public async getLatestItemsByCoin(coinSlug: string, language = 'en'): Promise<ICombinedFeed[]> {
+            return await this._fetch(`/all/coin/${coinSlug}`, { latest: true, language })
+        }
+
+
+        public async getCoinDetails(coinSlug: string, language = 'en'): Promise<ICoinDetail[]> {
+            return await this._fetch(`/details/coin/${coinSlug}`, { language })
         }
     }
 
@@ -106,6 +121,8 @@ export {
     generateAPI,
     IArticle,
     ICategoryResponse,
+    ICoinDetail,
+    ICombinedFeed,
     IFeed,
     IRedditItem,
     ITweet

@@ -55,23 +55,34 @@ var CryptoNewsAPI = require('crypto-news-api').default
 
 const Api = new CryptoNewsAPI('API_KEY_HERE')
 
+// Get top news
 Api.getTopNews()
     .then(function (articles) { console.log(articles) })
     .catch(function (error) { console.log(error) })
 
+// Get latest russian news
+Api.getTopNews("ru")
+    .then(function (articles) { console.log(articles) })
+    .catch(function (error) { console.log(error) })
 
+// Get top news for Bitcoin
 Api.getTopNewsByCoin("bitcoin")
     .then(function (articles) { console.log(articles) })
     .catch(function (error) { console.log(error) })
 
-
-Api.getLatestTweetsByCoin("bitcoin")
+// Get latest tweets for EOS
+Api.getLatestTweetsByCoin("eos")
     .then(function (tweets) { console.log(tweets) })
     .catch(function (error) { console.log(error) })
 
-
-Api.getLatestRedditPostsByCoin("bitcoin")
+// Get latest reddit posts for Ripple
+Api.getLatestRedditPostsByCoin("ripple")
     .then(function (redditPosts) { console.log(redditPosts) })
+    .catch(function (error) { console.log(error) })
+
+// Get coin details for ethereum
+Api.getCoinDetails("ethereum")
+    .then(function (details) { console.log(details) })
     .catch(function (error) { console.log(error) })
 ```
 
@@ -81,41 +92,55 @@ Api.getLatestRedditPostsByCoin("bitcoin")
 <script>
     const Api = new window.CryptoNewsApi('API_KEY_HERE')
 
+    // Get top news
     Api.getTopNews()
         .then(function (articles) { console.log(articles) })
         .catch(function (error) { console.log(error) })
 
+    // Get latest russian news
+    Api.getTopNews("ru")
+        .then(function (articles) { console.log(articles) })
+        .catch(function (error) { console.log(error) })
 
+    // Get top news for Bitcoin
     Api.getTopNewsByCoin("bitcoin")
         .then(function (articles) { console.log(articles) })
         .catch(function (error) { console.log(error) })
 
-
-    Api.getLatestTweetsByCoin("bitcoin")
+    // Get latest tweets for EOS
+    Api.getLatestTweetsByCoin("eos")
         .then(function (tweets) { console.log(tweets) })
         .catch(function (error) { console.log(error) })
 
-
-    Api.getLatestRedditPostsByCoin("bitcoin")
+    // Get latest reddit posts for Ripple
+    Api.getLatestRedditPostsByCoin("ripple")
         .then(function (redditPosts) { console.log(redditPosts) })
+        .catch(function (error) { console.log(error) })
+
+    // Get coin details for ethereum
+    Api.getCoinDetails("ethereum")
+        .then(function (details) { console.log(details) })
         .catch(function (error) { console.log(error) })
 </script>
 ```
 
 ## Available Functions
 
-- **getTopNews()** Get the top news articles.
-- **getLatestNews()** Get the latest news articles.
-- **getTopNewsByCategory()** Get news articles grouped by category.
-- **getTopNewsByCoin(coinSlug: String)** Get the top news articles for a specific coin.
-- **getLatestNewsByCoin(coinSlug: String)** Get the latest news articles for a specific coin.
-- **getTopNewsByCoinCategory(coinSlug: String)** Get news articles grouped by category for a specific coin.
-- **getTopRedditPostsByCoin(coin: String)** Get top reddit posts for a particular coin
-- **getLatestRedditPostsByCoin(coin: String)** Get latest reddit posts for a particular coin
-- **getTopTweetsByCoin(coin: String)** Get top tweets for a particular coin
-- **getLatestTweetsByCoin(coin: String)** Get latest tweets for a particular coin
-- **getTopFeedByCoin(coin: String)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by time)
-- **getLatestFeedByCoin(coin: String)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by relevance)
+- **getTopNews(lang?: enum)** Get the top news articles.
+- **getLatestNews(lang?: enum)** Get the latest news articles.
+- **getTopNewsByCategory(lang?: enum)** Get news articles grouped by category.
+- **getTopNewsByCoin(coin: String, lang?: enum)** Get the top news articles for a specific coin from the CryptoControl API.
+- **getLatestNewsByCoin(coin: String, lang?: enum)** Get the latest news articles for a specific coin.
+- **getTopNewsByCoinCategory(coin: String, lang?: enum)** Get news articles grouped by category for a specific coin.
+- **getTopRedditPostsByCoin(coin: String, lang?: enum)** Get top reddit posts for a particular coin
+- **getLatestRedditPostsByCoin(coin: String, lang?: enum)** Get latest reddit posts for a particular coin
+- **getTopTweetsByCoin(coin: String, lang?: enum)** Get top tweets for a particular coin
+- **getLatestTweetsByCoin(coin: String, lang?: enum)** Get latest tweets for a particular coin
+- **getTopFeedByCoin(coin: String, lang?: enum)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by time)
+- **getLatestFeedByCoin(coin: String, lang?: enum)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by relevance)
+- **getTopItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (seperated) for a particular coin (sorted by time)
+- **getLatestItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (seperated) for a particular coin (sorted by relevance)
+- **getCoinDetails(coin: String)** Get all details about a particular coin (links, description, subreddits, twitter etc..)
 
 The coin slugs are the coin id's used from the CoinMarketCap api. You can see the full list of coins here: [https://api.coinmarketcap.com/v1/ticker/?limit=2000](https://api.coinmarketcap.com/v1/ticker/?limit=2000)
 
