@@ -5,16 +5,17 @@ import { IArticle, ICategoryResponse, ITweet, IRedditItem, IFeed, ICoinDetail, I
 
 
 const logger = debug('crypto-news-api')
-const API_HOST = 'https://cryptocontrol.io/api/v1/public'
 
 
 const generateAPI = (fetch: any) => {
     const CryptoControlApi = class CryptoControlApi {
         apikey: string
+        proxyURL?: string
 
-        constructor(apikey: string) {
+        constructor(apikey: string, proxyURL?: string) {
             if (!apikey) throw new Error('No API key found. Register for an API key at https://cryptocontrol.io/apis')
             this.apikey = apikey
+            this.proxyURL = proxyURL
 
             logger('using cryptocontrol.io api v1')
         }
@@ -22,8 +23,10 @@ const generateAPI = (fetch: any) => {
 
         _fetch(url: string, query: any = {}): Promise<any> {
             const queryString = qs.stringify(query)
+            const API_HOST = 'https://cryptocontrol.io/api/v1/public'
+            const HOST = this.proxyURL || API_HOST
 
-            return fetch(`${API_HOST}${url}?${queryString}`, {
+            return fetch(`${HOST}${url}?${queryString}`, {
                 headers: {
                     'user-agent': 'CryptoControl Node.js API v2.2.0',
                     'x-api-key': this.apikey
