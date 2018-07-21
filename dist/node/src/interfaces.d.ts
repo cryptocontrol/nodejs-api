@@ -5,11 +5,21 @@ export interface IArticle {
     activityHotness: number;
     primaryCategory: string;
     words: number;
+    source: {
+        _id: string;
+        url: string;
+        name: string;
+    };
     similarArticles: [{
         _id: string;
         publishedAt: string;
         title: string;
         url: string;
+        source: {
+            _id: string;
+            url: string;
+            name: string;
+        };
     }];
     coins: [{
         _id: string;
@@ -71,4 +81,20 @@ export interface IFeed {
     tweet: ITweet;
     reddit: IRedditItem;
     article: IArticle;
+}
+export interface ICombinedFeed {
+    tweets: ITweet[];
+    redditPosts: IRedditItem[];
+    articles: IArticle[];
+}
+export interface ICoinDetail {
+    links: {
+        type: string;
+        name: string;
+        link: string;
+    }[];
+    gitrepos: string[];
+    description: string;
+    subreddits: string[];
+    twitterUsernames: string[];
 }

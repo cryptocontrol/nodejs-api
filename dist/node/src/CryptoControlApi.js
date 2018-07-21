@@ -52,7 +52,7 @@ var generateAPI = function (fetch) {
             var queryString = qs.stringify(query);
             return fetch("" + API_HOST + url + "?" + queryString, {
                 headers: {
-                    'user-agent': 'CryptoControl Node.js API',
+                    'user-agent': 'CryptoControl Node.js API v2.2.0',
                     'x-api-key': this.apikey
                 }
             })
@@ -64,121 +64,166 @@ var generateAPI = function (fetch) {
                 return response.json();
             });
         };
-        CryptoControlApi.prototype.getTopNews = function () {
+        CryptoControlApi.prototype.getTopNews = function (language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch('/news')];
+                        case 0: return [4, this._fetch('/news', { language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getLatestNews = function () {
+        CryptoControlApi.prototype.getLatestNews = function (language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch('/news', { latest: true })];
+                        case 0: return [4, this._fetch('/news', { latest: true, language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getTopNewsByCategory = function () {
+        CryptoControlApi.prototype.getTopNewsByCategory = function (language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/news/category")];
+                        case 0: return [4, this._fetch("/news/category", { language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getTopNewsByCoin = function (coinSlug) {
+        CryptoControlApi.prototype.getTopNewsByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/news/coin/" + coinSlug)];
+                        case 0: return [4, this._fetch("/news/coin/" + coinSlug, { language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getLatestNewsByCoin = function (coinSlug) {
+        CryptoControlApi.prototype.getLatestNewsByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/news/coin/" + coinSlug, { latest: true })];
+                        case 0: return [4, this._fetch("/news/coin/" + coinSlug, { latest: true, language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getTopNewsByCoinCategory = function (coinSlug) {
+        CryptoControlApi.prototype.getTopNewsByCoinCategory = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/news/coin/" + coinSlug + "/category")];
+                        case 0: return [4, this._fetch("/news/coin/" + coinSlug + "/category", { language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getTopTweeetsByCoin = function (coinSlug) {
+        CryptoControlApi.prototype.getTopTweeetsByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/tweets/coin/" + coinSlug)];
+                        case 0: return [4, this._fetch("/tweets/coin/" + coinSlug, { language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getLatestTweetsByCoin = function (coinSlug) {
+        CryptoControlApi.prototype.getLatestTweetsByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/tweets/coin/" + coinSlug, { latest: true })];
+                        case 0: return [4, this._fetch("/tweets/coin/" + coinSlug, { latest: true, language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getTopRedditPostsByCoin = function (coinSlug) {
+        CryptoControlApi.prototype.getTopRedditPostsByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/reddit/coin/" + coinSlug)];
+                        case 0: return [4, this._fetch("/reddit/coin/" + coinSlug, { language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getLatestRedditPostsByCoin = function (coinSlug) {
+        CryptoControlApi.prototype.getLatestRedditPostsByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/reddit/coin/" + coinSlug, { latest: true })];
+                        case 0: return [4, this._fetch("/reddit/coin/" + coinSlug, { latest: true, language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getTopFeedByCoin = function (coinSlug) {
+        CryptoControlApi.prototype.getTopFeedByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/feed/coin/" + coinSlug)];
+                        case 0: return [4, this._fetch("/feed/coin/" + coinSlug, { language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
             });
         };
-        CryptoControlApi.prototype.getLatestFeedByCoin = function (coinSlug) {
+        CryptoControlApi.prototype.getLatestFeedByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4, this._fetch("/feed/coin/" + coinSlug, { latest: true })];
+                        case 0: return [4, this._fetch("/feed/coin/" + coinSlug, { latest: true, language: language })];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        CryptoControlApi.prototype.getTopItemsByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/all/coin/" + coinSlug, { language: language })];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        CryptoControlApi.prototype.getLatestItemsByCoin = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/all/coin/" + coinSlug, { latest: true, language: language })];
+                        case 1: return [2, _a.sent()];
+                    }
+                });
+            });
+        };
+        CryptoControlApi.prototype.getCoinDetails = function (coinSlug, language) {
+            if (language === void 0) { language = 'en'; }
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, this._fetch("/details/coin/" + coinSlug, { language: language })];
                         case 1: return [2, _a.sent()];
                     }
                 });
