@@ -15,6 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "crypto-news-api": "^1.0.20"
+    "crypto-news-api": "^2.2.0"
   }
 }

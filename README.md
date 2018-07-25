@@ -20,8 +20,6 @@ bower install crypto-news-api --save
 ## Usage
 First make sure that you've recieved an API key by visiting [https://cryptocontrol.io/apis](https://cryptocontrol.io/apis). With the API key, you can write the following code.
 
-**NOTE**: API access is rate-limited to 5 req/sec and 10,000 req/hour. It'll be a good idea to cache your API calls.
-
 
 ### Node.js ES6/Typescript
 ```javascript
@@ -65,7 +63,7 @@ Api.getTopFeedByCoin("litecoin")
     .then(function (feed) { console.log(feed) })
     .catch(function (error) { console.log(error) })
 
-// Get all reddit/tweets/articles (sepearted) for NEO
+// Get all reddit/tweets/articles (separated) for NEO
 Api.getTopItemsByCoin("neo")
     .then(function (feed) { console.log(feed) })
     .catch(function (error) { console.log(error) })
@@ -110,8 +108,8 @@ Api.getCoinDetails("ethereum")
 - **getLatestTweetsByCoin(coin: String, lang?: enum)** Get latest tweets for a particular coin
 - **getTopFeedByCoin(coin: String, lang?: enum)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by time)
 - **getLatestFeedByCoin(coin: String, lang?: enum)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by relevance)
-- **getTopItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (seperated) for a particular coin (sorted by time)
-- **getLatestItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (seperated) for a particular coin (sorted by relevance)
+- **getTopItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (separated) for a particular coin (sorted by time)
+- **getLatestItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (separated) for a particular coin (sorted by relevance)
 - **getCoinDetails(coin: String)** Get all details about a particular coin (links, description, subreddits, twitter etc..)
 
 `lang` allows developers to choose which language they'd like to get the feed. Currently CryptoControl supports English ('en') and Russian ('ru') article feeds.
