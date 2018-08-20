@@ -14,8 +14,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _.label++; return { value: op[1], done: false };
@@ -41,6 +41,7 @@ var logger = debug('crypto-news-api');
 var generateAPI = function (fetch) {
     var CryptoControlApi = (function () {
         function CryptoControlApi(apikey, proxyURL) {
+            this.sentimentEnabled = false;
             if (!apikey)
                 throw new Error('No API key found. Register for an API key at https://cryptocontrol.io/apis');
             this.apikey = apikey;
@@ -49,9 +50,11 @@ var generateAPI = function (fetch) {
         }
         CryptoControlApi.prototype._fetch = function (url, query) {
             if (query === void 0) { query = {}; }
+            query.enableSentiment = this.sentimentEnabled;
             var queryString = qs.stringify(query);
             var API_HOST = 'https://cryptocontrol.io/api/v1/public';
             var HOST = this.proxyURL || API_HOST;
+            console.log("" + HOST + url + "?" + queryString);
             return fetch("" + HOST + url + "?" + queryString, {
                 headers: {
                     'user-agent': 'CryptoControl Node.js API v2.2.0',
@@ -61,9 +64,19 @@ var generateAPI = function (fetch) {
                 .then(function (response) {
                 if (response.status === 401)
                     throw new Error('Invalid API Key');
+                if (response.status === 405)
+                    throw new Error('You are not a premium user. Visit https://cryptocontrol.io/about/premium for more info');
                 if (response.status !== 200)
                     throw new Error('Bad response from the CryptoControl server');
                 return response.json();
+            });
+        };
+        CryptoControlApi.prototype.enableSentiment = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    this.sentimentEnabled = true;
+                    return [2];
+                });
             });
         };
         CryptoControlApi.prototype.getTopNews = function (language) {
