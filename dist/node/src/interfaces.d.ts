@@ -1,4 +1,4 @@
-export declare type ILanguage = 'en' | 'ru' | 'po' | 'cn' | 'ko' | 'es' | 'it' | 'du' | 'jp';
+export declare type ILanguage = 'en' | 'ru' | 'po' | 'cn' | 'ko' | 'es' | 'it' | 'de' | 'jp';
 export interface IArticle {
     _id: string;
     publishedAt: string;
