@@ -34,7 +34,7 @@ const Api = new CryptoNewsAPI('API_KEY_HERE')
 const ProxyApi = new CryptoNewsAPI('API_KEY_HERE', 'http://cryptocontrol_proxy/api/v1/public')
 
 
-// Enable the sentiment API
+// Enable the sentiment datapoints
 Api.enableSentiment()
 
 // Get top news
@@ -118,15 +118,15 @@ Api.getCoinDetails("ethereum")
 - **enableSentiment()** Get the sentiment datapoints
 
 `lang` allows developers to choose which language they'd like to get the feed. Currently the CryptoControl API supports the following languages:
-    - English (`en` default)
-    - Chinese/Mandarin (`cn`)
-    - German (`de`)
-    - Italian (`it`)
-    - Japanese (`jp`)
-    - Korean (`ko`)
-    - Portuguese (`po`)
-    - Russian (`ru`)
-    - Spanish (`es`)
+- English (`en` default)
+- Chinese/Mandarin (`cn`)
+- German (`de`)
+- Italian (`it`)
+- Japanese (`jp`)
+- Korean (`ko`)
+- Portuguese (`po`)
+- Russian (`ru`)
+- Spanish (`es`)
 
 The coin slugs are the coin id's used from the CoinMarketCap api. You can see the full list of coins here: [https://api.coinmarketcap.com/v1/ticker/?limit=2000](https://api.coinmarketcap.com/v1/ticker/?limit=2000)
 
