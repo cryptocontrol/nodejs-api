@@ -29,8 +29,6 @@ const generateAPI = (fetch: any) => {
             const API_HOST = 'https://cryptocontrol.io/api/v1/public'
             const HOST = this.proxyURL || API_HOST
 
-            console.log(`${HOST}${url}?${queryString}`)
-
             return fetch(`${HOST}${url}?${queryString}`, {
                 headers: {
                     'user-agent': 'CryptoControl Node.js API v2.2.0',
@@ -49,6 +47,7 @@ const generateAPI = (fetch: any) => {
         public async enableSentiment(){
           this.sentimentEnabled = true;
         }
+
 
         public async getTopNews(language: ILanguage = 'en'): Promise<IArticle[]> {
             return await this._fetch('/news', { language })

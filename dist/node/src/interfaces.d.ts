@@ -33,6 +33,8 @@ export interface IArticle {
     url: string;
     thumbnail?: string;
     originalImageUrl?: string;
+    sentiment?: 'pos' | 'neg' | 'neu';
+    sentimentScore?: number;
 }
 export interface ICategoryResponse {
     analysis: IArticle[];
