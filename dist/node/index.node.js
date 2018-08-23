@@ -4,6 +4,6 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 var fetch = require("node-fetch");
-var API = require("./src/CryptoControlApi");
+var CryptoControlApi = require("./src/CryptoControlApi");
 __export(require("./src/CryptoControlApi"));
-exports.default = API.generateAPI(fetch);
+exports.default = CryptoControlApi.generateAPI(fetch);
