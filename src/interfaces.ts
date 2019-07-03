@@ -12,6 +12,7 @@ export interface IArticle {
         _id: string
         url: string
         name: string
+        favicon: string
     }
     similarArticles: [{
         _id: string
@@ -22,6 +23,7 @@ export interface IArticle {
             _id: string
             url: string
             name: string
+            favicon: string
         }
     }]
     coins: [{
