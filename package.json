@@ -39,7 +39,7 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
-    "node-fetch": "^2.1.2",
+    "node-fetch": "^3.1.1",
     "qs": "^6.5.2",
     "whatwg-fetch": "^2.0.4"
   }
